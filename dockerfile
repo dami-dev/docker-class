@@ -1,12 +1,9 @@
-FROM php:7.2-fpm-alpine
+FROM php:7.2-apache
 
 RUN apk --update add wget 
 
 
-#create a working directory 
-WORKDIR /public/html
-
 #copy file from my folder to image
-COPY . /public/html
+COPY . /var/www/html
 
-ENTRYPOINT [ "./home.php" ]
+EXPOSE 5000
